@@ -13,7 +13,6 @@ int main() {
     //input file stream to take in data
     ifstream fin;
     string val;
-    int sum = 0;
 
     //map for storing key-values
     map<int, list<string>> hash_table;
