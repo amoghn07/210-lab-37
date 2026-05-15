@@ -30,6 +30,20 @@ int main() {
         hash_table[index].push_back(val);
     }
 
+    int count = 0;
+    //nested range based loop to access list and then string inside list to print
+    for (const auto& i : hash_table) {
+        cout << i.first << ": ";
+        for (const auto& j : i.second) {
+            cout << j << "\n";
+        }
+        count++;
+        //breaking when count = 100 to stop at 100 values printed
+        if (count == 100) {
+            break;
+        }
+    }
+
     fin.close();
 
     return 0;
