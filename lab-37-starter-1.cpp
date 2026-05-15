@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <map>
+#include <list>
 using namespace std;
 
 //prototype for func
@@ -12,6 +14,9 @@ int main() {
     string val;
     int sum = 0;
 
+    //map for storing key-values
+    map<int, list<char>> ascii_map;
+
     fin.open("lab-37-data-3.txt");
 
     //error handle
@@ -19,12 +24,6 @@ int main() {
         cout << "could not open the file.";
         return 1;
     }
-
-    //while loop to read in and sum data
-    while (fin >> val){
-        sum += sum_ascii(val);
-    }
-    cout << sum;
 
     fin.close();
 
