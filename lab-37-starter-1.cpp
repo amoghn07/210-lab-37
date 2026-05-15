@@ -6,7 +6,8 @@
 using namespace std;
 
 //prototype for func
-int sum_ascii(string);
+int gen_hash_index(string);
+
 
 int main() {
     //input file stream to take in data
@@ -15,7 +16,7 @@ int main() {
     int sum = 0;
 
     //map for storing key-values
-    map<int, list<char>> ascii_map;
+    map<int, list<string>> hash_table;
 
     fin.open("lab-37-data-3.txt");
 
@@ -25,18 +26,23 @@ int main() {
         return 1;
     }
 
+    while (fin >> val){
+        int index = gen_hash_index(val);
+        hash_table[index].push_back(val);
+    }
+
     fin.close();
 
     return 0;
 }
 
-int sum_ascii(string s){
+int gen_hash_index(string s){
     int sum = 0;
     int sz = s.size();
     for (int i = 0; i < sz; i++){
         sum += (int) s[i];
     }
-
+    //returning hash index
     return sum;
 }
 
