@@ -1,18 +1,32 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 //prototype for func
 int sum_ascii(string);
 
 int main() {
-    char a = 'A';
-    cout << a << endl;
-    cout << (int) a << endl;
-    int b = 66;
-    cout << b << endl;
-    cout << (char) b << endl;
-    cout << sum_ascii("yooo");
+    //input file stream to take in data
+    ifstream fin;
+    string val;
+    int sum = 0;
+
+    fin.open("lab-37-data-3.txt");
+
+    //error handle
+    if (!fin.is_open()) {
+        cout << "could not open the file.";
+        return 1;
+    }
+
+    //while loop to read in and sum data
+    while (fin >> val){
+        sum += sum_ascii(val);
+    }
+    cout << sum;
+
+    fin.close();
 
     return 0;
 }
